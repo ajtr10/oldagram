@@ -17,7 +17,7 @@ const posts = [
         comment: "i'm feelin a bit stressed tbh",
         likes: 4
     },
-        {
+    {
         name: "Joseph Ducreux",
         username: "jd1735",
         location: "Paris, France",
@@ -28,3 +28,39 @@ const posts = [
     }
 ]
 
+// Select the feed container
+const feed = document.getElementById("feed");
+
+// Loop through each post and insert HTML
+posts.forEach(post => {
+    feed.innerHTML += `
+        <div class="post">
+
+            <div class="post-header">
+                <img class="post-user-avatar" src="${post.avatar}">
+                <div class="post-user-info">
+                    <span class="post-username">${post.name}</span>
+                    <span class="post-location">${post.location}</span>
+                </div>
+            </div>
+
+            <img class="post-image" src="${post.post}">
+
+            <div class="post-actions">
+                <img class="post-action-icon" src="images/icon-heart.png">
+                <img class="post-action-icon" src="images/icon-comment.png">
+                <img class="post-action-icon" src="images/icon-dm.png">
+            </div>
+
+            <div class="post-likes">
+                <span class="post-likes-count">${post.likes} likes</span>
+            </div>
+
+            <div class="post-caption">
+                <span class="post-caption-username">${post.username}</span>
+                <span class="post-caption-text">${post.comment}</span>
+            </div>
+
+        </div>
+    `;
+});
